@@ -93,7 +93,7 @@ fetch('https://testerpool-api.herokuapp.com/auth/sign_out', {
     'Content-Type': 'application/vnd.api+json',
     'uid': 'the-users-UID',
     'access-token': 'the-users-access-token',
-    'client': 'the-id-of-this-client'
+    'client': 'the-client-id'
   },
   body: JSON.stringify({
   })
@@ -108,7 +108,7 @@ fetch('https://testerpool-api.herokuapp.com/auth/sign_out', {
 }
 ```
 
-This endpoint invalidates the current access-token for this client.
+This endpoint invalidates the current access-token for the given client-id.
 
 
 ### HTTP Request

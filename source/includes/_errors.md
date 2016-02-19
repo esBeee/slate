@@ -8,13 +8,14 @@ The Kittn API uses the following error codes:
 Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Invalid email-password-pair
-403 | Forbidden -- The kitten requested is hidden for administrators only
+401 | Unauthorized -- Invalid email-password-pair on sign in / Invalid or no auth information in header but required for this action
+403 | Forbidden -- Missing parameter
 404 | Not Found -- The specified path or could not be found or no user could be authorized from header data
 405 | Method Not Allowed -- You tried to access a kitten with an invalid method
 406 | Not Acceptable -- You requested a format that isn't json
 410 | Gone -- The kitten requested has been removed from our servers
 418 | I'm a teapot
+422 | Unprocessable entity (resource couldn't be saved) / Attributes invalid
 429 | Too Many Requests -- You're requesting too many kittens! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
