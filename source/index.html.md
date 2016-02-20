@@ -30,7 +30,7 @@ This API documentation was created with [Slate](https://github.com/tripit/slate)
 
 # Authentication
 
-testerpool API currently responds to every request coming from host localhost:3000.
+testerpool API currently responds to every request coming from host localhost:3000, testerpool.s3-website.eu-central-1.amazonaws.com and testerpool.herokuapp.com
 
 
 # Requests
