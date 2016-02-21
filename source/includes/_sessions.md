@@ -63,6 +63,7 @@ Key | Meaning
 uid | The user's uid.
 access-token | The user's access-token. Changes with every successful authenticated request.
 client | The specific client id.
+expiry | The date at which the current session will expire.
 
 <aside class="warning">
 With every request, the access-token gets refreshed. So you always need to use the access-token from the response of the last successful request you used it for.

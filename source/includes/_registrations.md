@@ -70,7 +70,7 @@ Parameter | Description
 token | The first valid access-token.
 client_id | The newly created client-id.
 uid | The user's *uid*.
-expiry | Some information about when the token will be invalid.
+expiry | The date at which the current session will expire.
 account_confirmation_success | Is always *true* in this case.
 config | Usually set to *default*
 
