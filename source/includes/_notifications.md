@@ -21,7 +21,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 ```json
 {
   "meta": {
-    "amount_exisiting": "2"
+    "amount_existing": "2"
   },
   "data": [
     {
@@ -65,7 +65,7 @@ Error Code | Meaning
 
 
 
-## Delete a specific notification.
+## Delete a notification
 
 ```javascript
 fetch('https://testerpool-api.herokuapp.com/notifications/1', {
@@ -86,7 +86,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications/1', {
 ```json
 {
   "meta": {
-    "amount_exisiting": "2"
+    "amount_existing": "2"
   }
 }
 ```
@@ -119,7 +119,7 @@ Error Code | Meaning
 404 | The given ID can't be assigned to an existing notification of the authenticated user.
 
 
-## Delete all of a users notifications.
+## Delete all notifications
 
 ```javascript
 fetch('https://testerpool-api.herokuapp.com/notifications', {
@@ -140,7 +140,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications', {
 ```json
 {
   "meta": {
-    "amount_exisiting": "0",
+    "amount_existing": "0",
     "amount_deleted": "5"
   }
 }
