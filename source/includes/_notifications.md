@@ -41,13 +41,13 @@ This endpoint receives a given amount of the newest notifications for a user.
 
 ### HTTP Request
 
-`GET https://testerpool-api.herokuapp.com/notifications`
+`GET https://testerpool-api.herokuapp.com/notifications?amount=<amount>`
 
 ### Query parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-amount | 10 | Amount of notifications to be loaded.
+Parameter | Type | Default | Description
+--------- | ---- | ------- | -----------
+amount | integer | 10 | Amount of notifications to be loaded.
 
 <aside class="success">
 Responds 200 on success
