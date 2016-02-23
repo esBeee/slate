@@ -21,6 +21,9 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 
 ```json
 {
+  "meta": {
+    "amount_exisiting": 2
+  },
   "data": [
     {
       "type": "notifications",
@@ -35,7 +38,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 }
 ```
 
-This endpoint updates a user profile.
+This endpoint receives a given amount of the newest notifications for a user.
 
 ### HTTP Request
 
@@ -50,6 +53,10 @@ amount | 10 | Amount of notifications to be loaded.
 <aside class="success">
 Responds 200 on success
 </aside>
+
+### Response
+
+Responds with notifications at the requested amount or less, if not that much exist, in *data* and the total amount of exisiting notifications for the given user as *amount_existing* in *meta*
 
 ### Common errors
 
