@@ -1040,6 +1040,9 @@ Responds 200 on success
 <p>The above command returns an array of notifications as JSON</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"amount_exisiting"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notifications"</span><span class="p">,</span><span class="w">
@@ -1054,7 +1057,7 @@ Responds 200 on success
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint updates a user profile.</p>
+<p>This endpoint receives a given amount of the newest notifications for a user.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1079,6 +1082,10 @@ Responds 200 on success
 <aside class="success">
 Responds 200 on success
 </aside>
+
+<h3 id="response">Response</h3>
+
+<p>Responds with notifications at the requested amount or less, if not that much exist, in <em>data</em> and the total amount of exisiting notifications for the given user as <em>amount_existing</em> in <em>meta</em></p>
 
 <h3 id="common-errors">Common errors</h3>
 
