@@ -14,6 +14,7 @@ includes:
   - sessions
   - users
   - profiles
+  - notifications
   - errors
 
 search: true
