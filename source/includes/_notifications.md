@@ -22,12 +22,12 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 ```json
 {
   "meta": {
-    "amount_exisiting": 2
+    "amount_exisiting": "2"
   },
   "data": [
     {
       "type": "notifications",
-      "id": 210,
+      "id": "210",
       "attributes": {
         "created_at": "2016-02-22T23:29:34.660+01:00",
         "message": "You have received a new message on test 'Test to test a test'.",
