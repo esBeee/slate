@@ -1032,7 +1032,6 @@ Responds 200 on success
     <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="p">{}</span>
-  <span class="p">})</span>
 <span class="p">})</span>
 </code></pre>
 
@@ -1041,12 +1040,12 @@ Responds 200 on success
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"amount_exisiting"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="nt">"amount_exisiting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notifications"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"210"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T23:29:34.660+01:00"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You have received a new message on test 'Test to test a test'."</span><span class="p">,</span><span class="w">
@@ -1098,6 +1097,131 @@ Responds 200 on success
 <tr>
 <td>401</td>
 <td>Not signed in</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-a-specific-notification">Delete a specific notification.</h2>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications/1'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns an array of notifications as JSON</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"amount_exisiting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows the deletion of a specific notification of a user.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://testerpool-api.herokuapp.com/notifications/&lt;id&gt;</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>-</td>
+<td>The numeric ID of the notification to be deleted.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Responds 200 on success
+</aside>
+
+<h3 id="response">Response</h3>
+
+<p>Responds with the total amount of remaining notifications for the given user as <em>amount_existing</em> in <em>meta</em></p>
+
+<h3 id="common-errors">Common errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Not signed in.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>The given ID can&rsquo;t be assigned to an existing notification of the authenticated user.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-all-of-a-users-notifications">Delete all of a users notifications.</h2>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns an array of notifications as JSON</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"amount_exisiting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount_deleted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows the deletion of all notifications of a user.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://testerpool-api.herokuapp.com/notifications</code></p>
+
+<aside class="success">
+Responds 200 on success
+</aside>
+
+<h3 id="response">Response</h3>
+
+<p>Responds with the total amount of remaining notifications for the given user as <em>amount_existing</em> (right now, there&rsquo;s no reason this number will not be 0 in this context) and <em>amount_deleted</em>, as amount of just deleted notifications, in <em>meta</em>.</p>
+
+<h3 id="common-errors">Common errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Not signed in.</td>
 </tr>
 </tbody></table>
 
