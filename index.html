@@ -127,7 +127,7 @@
 
 <h1 id="authentication">Authentication</h1>
 
-<p>testerpool API currently responds to every request coming from host localhost:3000.</p>
+<p>testerpool API currently responds to every request coming from host localhost:3000, testerpool.s3-website.eu-central-1.amazonaws.com and testerpool.herokuapp.com</p>
 
 <h1 id="requests">Requests</h1>
 <pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/some/thing'</span><span class="p">,</span> <span class="p">{</span>
@@ -349,7 +349,7 @@ On success, an email gets send to the posted email address, containing a confirm
 </tr>
 <tr>
 <td>expiry</td>
-<td>Some information about when the token will be invalid.</td>
+<td>The date at which the current session will expire.</td>
 </tr>
 <tr>
 <td>account_confirmation_success</td>
@@ -553,6 +553,14 @@ This will additionally require the user&rsquo;s current password as query paramt
 <tr>
 <td>access-token</td>
 <td>The user&rsquo;s access-token. Changes with every successful authenticated request.</td>
+</tr>
+<tr>
+<td>client</td>
+<td>The specific client id.</td>
+</tr>
+<tr>
+<td>expiry</td>
+<td>The date at which the current session will expire.</td>
 </tr>
 </tbody></table>
 
@@ -1008,6 +1016,81 @@ Responds 200 on success
 <tr>
 <td>422</td>
 <td>Attributes invalid</td>
+</tr>
+</tbody></table>
+
+          <h1 id="notifications">Notifications</h1>
+
+<h2 id="get-notifications">Get notifications</h2>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications?amount=1'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns an array of notifications as JSON</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notifications"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T23:29:34.660+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You have received a new message on test 'Test to test a test'."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"corresponding_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/tests/292/conversations/405"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint updates a user profile.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://testerpool-api.herokuapp.com/notifications</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>10</td>
+<td>Amount of notifications to be loaded.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Responds 200 on success
+</aside>
+
+<h3 id="common-errors">Common errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Not signed in</td>
 </tr>
 </tbody></table>
 
