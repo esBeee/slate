@@ -1227,6 +1227,57 @@ Responds 200 on success
 </tr>
 </tbody></table>
 
+          <h1 id="credit-account">Credit Account</h1>
+
+<h2 id="get-current-balance">Get current balance</h2>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/credit_account/balance'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns the users current balance as JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"tester_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"euros"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.98"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint receives the user&rsquo;s current amount of tester points and euros.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://testerpool-api.herokuapp.com/credit_account/balance</code></p>
+
+<aside class="success">
+Responds 200 on success
+</aside>
+
+<h3 id="common-errors">Common errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Not signed in</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
