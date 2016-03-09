@@ -188,16 +188,6 @@
 <h1 id="responses">Responses</h1>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Ungültige Anmeldeinformationen. Bitte versuchen Sie es erneut."</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Or</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> 
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">422</span><span class="p">,</span><span class="w">
       </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -206,6 +196,14 @@
       </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Must be present."</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>In some cases (regarding user authentication) also this and other formats are possible:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Authorized users only."</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -245,11 +243,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="unless-otherwise-stated-an-unsuccessful-request-is-of-the-following-form-see-code-example">Unless otherwise stated, an unsuccessful request is of the following form (see code example)</h3>
-
-<aside class="warning">
-In construction
-</aside>
+<h3 id="unless-otherwise-stated-an-unsuccessful-request-is-of-the-following-form-see-code-example-note-that-only-the-keys-status-and-detail-are-mandatory">Unless otherwise stated, an unsuccessful request is of the following form (see code example; note that only the keys <em>status</em> and <em>detail</em> are mandatory)</h3>
 
           <h1 id="registrations">Registrations</h1>
 
@@ -586,7 +580,7 @@ A token will remain valid for 2 weeks only.
 </thead><tbody>
 <tr>
 <td>401</td>
-<td>Invalid email-password-pair</td>
+<td>Invalid email-password-pair, User not confirmed</td>
 </tr>
 </tbody></table>
 
