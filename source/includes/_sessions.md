@@ -82,7 +82,7 @@ A token will remain valid for 2 weeks only.
 
 Error Code | Meaning
 ---------- | -------
-401 | Invalid email-password-pair
+401 | Invalid email-password-pair, User not confirmed
 
 
 ## Sign out

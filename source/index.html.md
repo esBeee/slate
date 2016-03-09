@@ -74,16 +74,6 @@ client | The client id. You receive that on sign in.
 ```json
 {
   "errors": [
-    "Ungültige Anmeldeinformationen. Bitte versuchen Sie es erneut."
-  ]
-}
-```
-
-> Or
-
-```json
-{
-  "errors": [
     { 
       "status": 422,
       "source": {
@@ -92,6 +82,14 @@ client | The client id. You receive that on sign in.
       "detail": "Must be present."
     }
   ]
+}
+```
+
+> In some cases (regarding user authentication) also this and other formats are possible:
+
+```json
+{
+  "errors": ["Authorized users only."]
 }
 ```
 
@@ -109,8 +107,4 @@ Code | Meaning
 200 | Success
 201 | Resource created
 
-### Unless otherwise stated, an unsuccessful request is of the following form (see code example)
-
-<aside class="warning">
-In construction
-</aside>
+### Unless otherwise stated, an unsuccessful request is of the following form (see code example; note that only the keys *status* and *detail* are mandatory)
