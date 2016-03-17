@@ -91,4 +91,3 @@ Responds 200 on success
 Error Code | Meaning
 ---------- | -------
 401 | Not signed in
-422 | Attributes invalid
