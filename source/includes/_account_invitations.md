@@ -1,16 +1,19 @@
-# Accounts
+# Account Invitations
 
-## Get the user's account
+## Create a new Invitation
 
 ```javascript
-fetch('https://testerpool-api.herokuapp.com/account', {
-  method: 'GET',
+fetch('https://testerpool-api.herokuapp.com/account_invitations', {
+  method: 'POST',
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'
+  },
+  body: {
+    'email': 'a@b.de'
   }
 })
 ```
@@ -68,19 +71,17 @@ fetch('https://testerpool-api.herokuapp.com/account', {
 }
 ```
 
-> or if no account exists
-
-```json
-{
-  "data": null
-}
-```
-
-This endpoint retrieves the user's account along with its associated invitations and members if one exists.
+This endpoint creates a new invitation to the requesting user's account. After creating, an invitation email gets send to the given email address.
 
 ### HTTP Request
 
-`GET https://testerpool-api.herokuapp.com/account`
+`POST https://testerpool-api.herokuapp.com/account_invitations`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+email | The email address of the user to be invited.
 
 <aside class="success">
 Responds 200 on success
@@ -91,3 +92,5 @@ Responds 200 on success
 Error Code | Meaning
 ---------- | -------
 401 | Not signed in
+404 | User doesn't have a profile
+422 | Invalid parameters (e.g. not a valid email address)

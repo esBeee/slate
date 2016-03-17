@@ -17,6 +17,7 @@ includes:
   - notifications
   - credit_accounts
   - accounts
+  - account_invitations
   - errors
 
 search: true

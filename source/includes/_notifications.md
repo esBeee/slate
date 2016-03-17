@@ -11,8 +11,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'
-  },
-  body: {}
+  }
 })
 ```
 
