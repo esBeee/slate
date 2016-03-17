@@ -26,7 +26,7 @@ fetch('https://testerpool-api.herokuapp.com/account', {
       "tester_points": 9
     },
     "relationships": {
-      "account_invitations": {
+      "invitations": {
         "data": [
           {
             "type": "account_invitations",
@@ -68,7 +68,7 @@ fetch('https://testerpool-api.herokuapp.com/account', {
 }
 ```
 
-> or "null" data if no account exists
+> or if no account exists
 
 ```json
 {
