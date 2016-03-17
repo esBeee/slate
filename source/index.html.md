@@ -15,7 +15,8 @@ includes:
   - users
   - profiles
   - notifications
-  - credit_account
+  - credit_accounts
+  - accounts
   - errors
 
 search: true
