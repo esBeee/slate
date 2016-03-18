@@ -18,7 +18,7 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations', {
 })
 ```
 
-> The above command returns the user's account as JSON
+> The above command returns the user's account as JSON including the just created account invitation
 
 ```json
 {
@@ -52,7 +52,7 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations', {
       "id": "4",
       "type": "account_invitations",
       "attributes": {
-        "email": "invited@add.de",
+        "email": "a@b.de",
         "processed": true,
         "created_at": "2016-03-17T18:22:33.760+01:00",
         "updated_at": "2016-03-17T18:22:33.760+01:00"
@@ -111,10 +111,57 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations/32', {
 })
 ```
 
-> The above command returns a blank JSON body
+> The above command returns the user's account as JSON (which doesn't contain the just destroyed invitation anymore)
 
 ```json
-{}
+{
+  "data": {
+    "type": "accounts",
+    "id": "4898",
+    "attributes": {
+      "tester_points": 9
+    },
+    "relationships": {
+      "invitations": {
+        "data": [
+          {
+            "type": "account_invitations",
+            "id": "4"
+          }
+        ]
+      },
+      "members": {
+        "data": [
+          {
+            "type": "profiles",
+            "id": "66"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "4",
+      "type": "account_invitations",
+      "attributes": {
+        "email": "a@b.de",
+        "processed": true,
+        "created_at": "2016-03-17T18:22:33.760+01:00",
+        "updated_at": "2016-03-17T18:22:33.760+01:00"
+      }
+    },
+    {
+      "type": "profiles",
+      "id": "66",
+      "attributes": {
+        "first_name": "Thomas",
+        "last_name": "Anderson",
+        "owns_account": false
+      }
+    }
+  ]
+}
 ```
 
 This endpoint destroys the account invitation whose id is given in the url, but only if the current user is owner of the account the invitation invites to.
