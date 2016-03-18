@@ -1373,7 +1373,7 @@ Responds 200 on success
 
           <h1 id="account-invitations">Account Invitations</h1>
 
-<h2 id="create-a-new-invitation">Create a new Invitation</h2>
+<h2 id="create-a-new-account-invitation">Create a new account invitation</h2>
 <pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/account_invitations'</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
@@ -1485,6 +1485,67 @@ Responds 200 on success
 <tr>
 <td>422</td>
 <td>Invalid parameters (e.g. not a valid email address)</td>
+</tr>
+</tbody></table>
+
+<h2 id="destroy-an-account-invitation">Destroy an account invitation</h2>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/account_invitations/32'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a blank JSON body</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint destroys the account invitation whose id is given in the url, but only if the current user is owner of the account the invitation invites to.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://testerpool-api.herokuapp.com/account_invitations/&lt;id&gt;</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the invitation to be destroyed.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Responds 200 on success
+</aside>
+
+<h3 id="common-errors">Common errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Not signed in / User is not account owner / Invitation doesn&rsquo;t belong to the user&rsquo;s account</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Invitation with this id doesn&rsquo;t exist</td>
 </tr>
 </tbody></table>
 
