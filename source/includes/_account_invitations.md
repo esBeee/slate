@@ -13,7 +13,8 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations', {
     'client': 'user-5642s-client-id'
   },
   body: {
-    'email': 'a@b.de'
+    'email': 'a@b.de',
+    'new_user_registration_url': 'https://www.testerpool.com/sign_up'
   }
 })
 ```
@@ -82,6 +83,7 @@ This endpoint creates a new invitation to the requesting user's account. After c
 Parameter | Description
 --------- | -----------
 email | The email address of the user to be invited.
+new_user_registration_url | The url the invited user gets send in the invitation email.
 
 <aside class="success">
 Responds 200 on success
