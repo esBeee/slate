@@ -61,6 +61,7 @@ fetch('https://testerpool-api.herokuapp.com/account', {
       "attributes": {
         "first_name": "Thomas",
         "last_name": "Anderson",
+        "email": "thomas@anderson.com",
         "owns_account": false
       }
     }
