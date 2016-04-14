@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - localization
+  - dates_and_times
   - registrations
   - passwords
   - sessions
