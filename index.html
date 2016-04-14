@@ -245,6 +245,44 @@
 
 <h3 id="unless-otherwise-stated-an-unsuccessful-request-is-of-the-following-form-see-code-example-note-that-only-the-keys-status-and-detail-are-mandatory">Unless otherwise stated, an unsuccessful request is of the following form (see code example; note that only the keys <em>status</em> and <em>detail</em> are mandatory)</h3>
 
+          <h1 id="localization">Localization</h1>
+
+<p>To request the response to be in a certain language, set the value of <em>Accept-Language</em> in your request header to a comma separated list of <a href='https://en.wikipedia.org/wiki/IETF_language_tag'>IETF language tags</a> (for example <em>en, en-US, en-cockney</em>). The API will then select the last tag (from left to right), that is supported. Currently supported are</p>
+
+<h3 id="registered-locales">Registered locales</h3>
+
+<table><thead>
+<tr>
+<th>IETF language tag</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>en</td>
+<td>English (default)</td>
+</tr>
+<tr>
+<td>de</td>
+<td>German</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Each response contains a value for *Content-Language* in the header that holds the language tag that was set before creating the messages.
+</aside>
+
+<aside class="warning">
+If none of the tags stated in the *Accept-Language* key in your request header is registered, the response will be in english.
+</aside>
+
+<aside class="notice">
+If no *Accept-Language* key was set in your request header, the response will be in english.
+</aside>
+
+<aside class="notice">
+As of now, this only refers to detailed error messages and notifications.
+</aside>
+
           <h1 id="registrations">Registrations</h1>
 
 <h2 id="sign-up">Sign up</h2>
