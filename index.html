@@ -247,6 +247,22 @@
 
           <h1 id="localization">Localization</h1>
 
+<blockquote>
+<p>Example: requesting notifications in english language</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications?amount=10'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
+    <span class="s1">'Accept-Language'</span><span class="p">:</span> <span class="s1">'en, en-US, en-cockney'</span><span class="p">,</span>
+    <span class="s1">'uid'</span><span class="p">:</span> <span class="s1">'user-5642s-UID'</span><span class="p">,</span>
+    <span class="s1">'access-token'</span><span class="p">:</span> <span class="s1">'user-5642s-access-token'</span><span class="p">,</span>
+    <span class="s1">'client'</span><span class="p">:</span> <span class="s1">'user-5642s-client-id'</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+
 <p>To request the response to be in a certain language, set the value of <em>Accept-Language</em> in your request header to a comma separated list of <a href='https://en.wikipedia.org/wiki/IETF_language_tag'>IETF language tags</a> (for example <em>en, en-US, en-cockney</em>). The API will then select the last tag (from left to right), that is supported. Currently supported are</p>
 
 <h3 id="registered-locales">Registered locales</h3>
