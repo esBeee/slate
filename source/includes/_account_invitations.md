@@ -86,7 +86,7 @@ email | The email address of the user to be invited.
 new_user_registration_url | The url the invited user gets send in the invitation email.
 
 <aside class="success">
-Responds 200 on success
+Responds 201 on success
 </aside>
 
 ### Common errors
