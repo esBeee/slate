@@ -263,7 +263,23 @@
 <span class="p">})</span>
 </code></pre>
 
-<p>To request the response to be in a certain language, set the value of <em>Accept-Language</em> in your request header to a comma separated list of <a href='https://en.wikipedia.org/wiki/IETF_language_tag'>IETF language tags</a> (for example <em>en, en-US, en-cockney</em>). The API will then select the last tag (from left to right), that is supported. Currently supported are</p>
+<p>To request the response to be in a certain language, set the value of <em>Accept-Language</em> in your request header to a comma separated list of <a href='https://en.wikipedia.org/wiki/IETF_language_tag'>IETF language tags</a> (for example <em>en, en-US, en-cockney</em>). The API will then select the last tag (from left to right), that is supported. See the table below to find out what language tags are currently supported.</p>
+
+<aside class="success">
+Each response contains a value for *Content-Language* in the header that holds the language tag that was set before creating the messages.
+</aside>
+
+<aside class="warning">
+If none of the tags stated in the *Accept-Language* key in your request header is registered, the response will be in english.
+</aside>
+
+<aside class="notice">
+If no *Accept-Language* key was set in your request header, the response will be in english.
+</aside>
+
+<aside class="notice">
+As of now, this only refers to detailed error messages and notifications.
+</aside>
 
 <h3 id="registered-locales">Registered locales</h3>
 
@@ -282,22 +298,6 @@
 <td>German</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Each response contains a value for *Content-Language* in the header that holds the language tag that was set before creating the messages.
-</aside>
-
-<aside class="warning">
-If none of the tags stated in the *Accept-Language* key in your request header is registered, the response will be in english.
-</aside>
-
-<aside class="notice">
-If no *Accept-Language* key was set in your request header, the response will be in english.
-</aside>
-
-<aside class="notice">
-As of now, this only refers to detailed error messages and notifications.
-</aside>
 
           <h1 id="dates-and-times">Dates and times</h1>
 
@@ -329,13 +329,11 @@ If no *Accept-Currency* key was set in your request header, Euro (EUR) will be u
 <tr>
 <th>Currency code</th>
 <th>Description</th>
-<th>Format example (de)</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>EUR</td>
 <td>Euro (Default)</td>
-<td>9.999.999,99 €</td>
 </tr>
 </tbody></table>
 
