@@ -18,9 +18,9 @@ If no *Accept-Currency* key was set in your request header, Euro (EUR) will be u
 
 ### Registered currency codes
 
-Currency code | Description | Format example (de)
-------------- | ----------- | -------------------
-EUR | Euro (Default) | 9.999.999,99 €
+Currency code | Description
+------------- | -----------
+EUR | Euro (Default)
 
 ## Number formats
 
