@@ -22,12 +22,12 @@ fetch('https://testerpool-api.herokuapp.com/credit_account/balance', {
 {
   "meta": {
     "tester_points": "2",
-    "euros": "5.98"
+    "monetary": "5.98"
   }
 }
 ```
 
-This endpoint receives the user's current amount of tester points and euros.
+This endpoint receives the user's current amount of tester points and money.
 
 ### HTTP Request
 

@@ -53,56 +53,61 @@ fetch('https://testerpool-api.herokuapp.com/profiles/own', {
 
 ```json
 {
-  "data": {
-    "type": "profiles",
-    "id": 1534,
-    "attributes": {
-      "id": 1534,
-      "first_name": "Thomas",
-      "last_name": "Anderson",
-      "sex": 2,
-      "balance": "0.0",
-      "day_of_birth": "1998-02-18",
-      "user_id": 5466,
-      "created_at": "2016-02-18T08:27:15.320+01:00",
-      "updated_at": "2016-02-18T08:27:15.320+01:00",
-      "tester_points": 0,
-      "account_id": null,
-      "owns_account": false,
-      "status": 1
-    },
-    "relationships": {
-      "user_addresses": {
-        "data": [
+  "data"=> {
+    "id"=>"10722",
+    "type"=>"profiles",
+    "attributes"=> {
+      "first_name"=>"Thomas",
+      "last_name"=>"Anderson",
+      "sex"=>2,
+      "balance"=>"0,00 €",
+      "day_of_birth"=>"1998-04-15",
+      "status"=>1,
+      "created_at"=>"2016-04-15T16:02:23.245Z",
+      "updated_at"=>"2016-04-15T16:02:23.245Z"
+    }, 
+    "relationships"=> {
+      "addresses"=> {
+        "data"=> [
           {
-            "type": "addresses",
-            "id": 4,
-            "attributes": {
-              "id": 4,
-              "addressable_id": 1534,
-              "addressable_type": "Profile",
-              "first_name": null,
-              "last_name": null,
-              "street": "Sesamstr.",
-              "street_no": "3 A",
-              "zip_code": "35673",
-              "city": "Berlin",
-              "country": "Germany",
-              "company": "Caltec",
-              "additional_address": null,
-              "vat_no": "DE294407310",
-              "longitude": 5.643423,
-              "latitude": 2.3565,
-              "activity_radius": 0,
-              "created_at": "2016-02-18T08:27:15.322+01:00",
-              "updated_at": "2016-02-18T08:27:15.322+01:00",
-              "state": "Berlin"
-            }
+            "id"=>"15031",
+            "type"=>"addresses"
           }
         ]
+      },
+      "phone_numbers"=> {
+        "data"=>[]
+      },
+      "bank_accounts"=> {
+        "data"=>[]
+      },
+      "paypal_accounts"=> {
+        "data"=>[]
       }
     }
-  }
+  },
+  "included"=> [
+    {
+      "id"=>"15031",
+      "type"=>"addresses",
+      "attributes"=> {
+        "street"=>"Sesamstr.",
+        "street_no"=>"3 A",
+        "zip_code"=>"35673",
+        "city"=>"Berlin",
+        "country"=>"Germany",
+        "company"=>"Caltec",
+        "additional_address"=>null,
+        "vat_no"=>"DE294407310",
+        "longitude"=>5.643423,
+        "latitude"=>2.3565,
+        "activity_radius"=>0,
+        "created_at"=>"2016-04-15T16:02:23.247Z",
+        "updated_at"=>"2016-04-15T16:02:23.247Z",
+        "state"=>"Berlin"
+      }
+    }
+  ]
 }
 ```
 
