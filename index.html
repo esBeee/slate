@@ -303,7 +303,63 @@ As of now, this only refers to detailed error messages and notifications.
 
 <p>This API accepts dates and times formatted according to <a href='https://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a>. For example <em>2016-04-14T13:24:39+00:00</em>. Any timezone is accepted.</p>
 
-<p>You will always receive dates (with time) in UTC (For example <em>2016-04-14T15:53:14Z</em>).</p>
+<p>You will always receive dates (with time) in UTC (for example <em>2016-04-14T15:53:14Z</em>).</p>
+
+          <h1 id="currencies">Currencies</h1>
+
+<h2 id="request-currencies">Request  currencies</h2>
+
+<p>By default, testerpool API returns currencies in Euro (EUR). To request another currency, set the value of <em>Accept-Currency</em> in your request header to one of the supported <a href='https://en.wikipedia.org/wiki/IETF_language_tag'>ISO 4217 currency codes</a>. See the table below to see what currencies this API currently supports.</p>
+
+<aside class="success">
+Each response that contains currencies contains a value for *Content-Currency* in the header that holds the currency code of the currency used to interpret the cash values within the response body.
+</aside>
+
+<aside class="warning">
+If the code stated in the *Accept-Currency* key in your request header is not registered, Euro (EUR) will be used as currency.
+</aside>
+
+<aside class="notice">
+If no *Accept-Currency* key was set in your request header, Euro (EUR) will be used as currency.
+</aside>
+
+<h3 id="registered-currency-codes">Registered currency codes</h3>
+
+<table><thead>
+<tr>
+<th>Currency code</th>
+<th>Description</th>
+<th>Format example (de)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EUR</td>
+<td>Euro (Default)</td>
+<td>9.999.999,99 €</td>
+</tr>
+</tbody></table>
+
+<h2 id="number-formats">Number formats</h2>
+
+<p>The number format depends on your locale setting (see section <em>Localization</em> to find out how to set the locale).</p>
+
+<h3 id="number-format-examples">Number format examples</h3>
+
+<table><thead>
+<tr>
+<th>Chosen locale</th>
+<th>Format example EUR</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>de (German)</td>
+<td>9.999,99 €</td>
+</tr>
+<tr>
+<td>en (English)</td>
+<td>9.999,99 €</td>
+</tr>
+</tbody></table>
 
           <h1 id="registrations">Registrations</h1>
 
@@ -895,57 +951,62 @@ Responds 200 on success
 <p>The above command returns the updated profile as JSON</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"profiles"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1534</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1534</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thomas"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anderson"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"day_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-02-18"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5466</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-18T08:27:15.320+01:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-18T08:27:15.320+01:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"tester_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"owns_account"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"user_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addresses"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"addressable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1534</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"addressable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profile"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sesamstr."</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"street_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 A"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35673"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caltec"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"additional_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"vat_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE294407310"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.643423</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3565</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"activity_radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-18T08:27:15.322+01:00"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-18T08:27:15.322+01:00"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"data"</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="err">=&gt;</span><span class="nt">"10722"</span><span class="err">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="err">=&gt;</span><span class="nt">"profiles"</span><span class="err">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="err">=&gt;</span><span class="nt">"Thomas"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="err">=&gt;</span><span class="nt">"Anderson"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="err">=&gt;2,</span><span class="w">
+      </span><span class="nt">"balance"</span><span class="err">=&gt;</span><span class="nt">"0,00 €"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"day_of_birth"</span><span class="err">=&gt;</span><span class="nt">"1998-04-15"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="err">=&gt;1,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="err">=&gt;</span><span class="nt">"2016-04-15T16:02:23.245Z"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="err">=&gt;</span><span class="nt">"2016-04-15T16:02:23.245Z"</span><span class="w">
+    </span><span class="err">},</span><span class="w"> 
+    </span><span class="s2">"relationships"</span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"addresses"</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">[</span><span class="w">
+          </span><span class="err">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="err">=&gt;</span><span class="nt">"15031"</span><span class="err">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="err">=&gt;</span><span class="nt">"addresses"</span><span class="w">
+          </span><span class="err">}</span><span class="w">
+        </span><span class="err">]</span><span class="w">
+      </span><span class="err">},</span><span class="w">
+      </span><span class="s2">"phone_numbers"</span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="err">=&gt;[]</span><span class="w">
+      </span><span class="err">},</span><span class="w">
+      </span><span class="s2">"bank_accounts"</span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="err">=&gt;[]</span><span class="w">
+      </span><span class="err">},</span><span class="w">
+      </span><span class="s2">"paypal_accounts"</span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="err">=&gt;[]</span><span class="w">
+      </span><span class="err">}</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="err">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="err">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="err">=&gt;</span><span class="nt">"15031"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="err">=&gt;</span><span class="nt">"addresses"</span><span class="err">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="err">=&gt;</span><span class="nt">"Sesamstr."</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"street_no"</span><span class="err">=&gt;</span><span class="nt">"3 A"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"zip_code"</span><span class="err">=&gt;</span><span class="nt">"35673"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="err">=&gt;</span><span class="nt">"Berlin"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="err">=&gt;</span><span class="nt">"Germany"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"company"</span><span class="err">=&gt;</span><span class="nt">"Caltec"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"additional_address"</span><span class="err">=&gt;null,</span><span class="w">
+        </span><span class="nt">"vat_no"</span><span class="err">=&gt;</span><span class="nt">"DE294407310"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="err">=&gt;5.643423,</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="err">=&gt;2.3565,</span><span class="w">
+        </span><span class="nt">"activity_radius"</span><span class="err">=&gt;0,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="err">=&gt;</span><span class="nt">"2016-04-15T16:02:23.247Z"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="err">=&gt;</span><span class="nt">"2016-04-15T16:02:23.247Z"</span><span class="err">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="err">=&gt;</span><span class="nt">"Berlin"</span><span class="w">
+      </span><span class="err">}</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint updates a user profile.</p>
@@ -1302,12 +1363,12 @@ Responds 200 on success
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"tester_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"euros"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.98"</span><span class="w">
+    </span><span class="nt">"monetary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.98"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint receives the user&rsquo;s current amount of tester points and euros.</p>
+<p>This endpoint receives the user&rsquo;s current amount of tester points and money.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
