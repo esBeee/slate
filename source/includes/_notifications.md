@@ -2,8 +2,10 @@
 
 ## Get notifications
 
+> Note: The example query parameters beyond use unencoded [ and ] characters simply for readability. In practice, these characters must be percent-encoded, per the requirements in <a href='http://tools.ietf.org/html/rfc3986#section-3.4'>RFC 3986</a>.
+
 ```javascript
-fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
+fetch('https://testerpool-api.herokuapp.com/notifications?page[limit]=2&page[offset]=1', {
   method: 'GET',
   headers: {
     'Accept': 'application/vnd.api+json',
@@ -15,7 +17,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 })
 ```
 
-> The above command returns an array of notifications as JSON
+> The above command returns 1 notification (when 2 exist), since the first was omitted by setting page[offset] to 1
 
 ```json
 {
@@ -36,17 +38,18 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=1', {
 }
 ```
 
-This endpoint receives a given amount of the newest notifications for a user.
+This endpoint receives a users notifications according to the provided limit and offset parameters. Before the query parameters are applied, the notifications get sorted by creation date (newest first).
 
 ### HTTP Request
 
-`GET https://testerpool-api.herokuapp.com/notifications?amount=<amount>`
+`GET https://testerpool-api.herokuapp.com/notifications?limit=<limit>&offset=<offset>`
 
 ### Query parameters
 
 Parameter | Type | Default | Description
 --------- | ---- | ------- | -----------
-amount | integer | 10 | Amount of notifications to be loaded.
+limit | integer | 10 | Amount of notifications to be received (tops).
+offset | integer | 0 | Amount of notifications to be omitted.
 
 <aside class="success">
 Responds 200 on success
