@@ -1135,7 +1135,11 @@ Responds 200 on success
           <h1 id="notifications">Notifications</h1>
 
 <h2 id="get-notifications">Get notifications</h2>
-<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications?amount=1'</span><span class="p">,</span> <span class="p">{</span>
+
+<blockquote>
+<p>Note: The example query parameters beyond use unencoded [ and ] characters simply for readability. In practice, these characters must be percent-encoded, per the requirements in <a href='http://tools.ietf.org/html/rfc3986#section-3.4'>RFC 3986</a>.</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://testerpool-api.herokuapp.com/notifications?page[limit]=2&amp;page[offset]=1'</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.api+json'</span><span class="p">,</span>
@@ -1148,7 +1152,7 @@ Responds 200 on success
 </code></pre>
 
 <blockquote>
-<p>The above command returns an array of notifications as JSON</p>
+<p>The above command returns 1 notification (when 2 exist), since the first was omitted by setting page[offset] to 1</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1168,11 +1172,11 @@ Responds 200 on success
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint receives a given amount of the newest notifications for a user.</p>
+<p>This endpoint receives a users notifications according to the provided limit and offset parameters. Before the query parameters are applied, the notifications get sorted by creation date (newest first).</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://testerpool-api.herokuapp.com/notifications?amount=&lt;amount&gt;</code></p>
+<p><code class="prettyprint">GET https://testerpool-api.herokuapp.com/notifications?limit=&lt;limit&gt;&amp;offset=&lt;offset&gt;</code></p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
@@ -1185,10 +1189,16 @@ Responds 200 on success
 </tr>
 </thead><tbody>
 <tr>
-<td>amount</td>
+<td>limit</td>
 <td>integer</td>
 <td>10</td>
-<td>Amount of notifications to be loaded.</td>
+<td>Amount of notifications to be received (tops).</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>integer</td>
+<td>0</td>
+<td>Amount of notifications to be omitted.</td>
 </tr>
 </tbody></table>
 
