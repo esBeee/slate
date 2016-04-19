@@ -22,7 +22,7 @@ fetch('https://testerpool-api.herokuapp.com/balance', {
 {
   "meta": {
     "tester_points": "2",
-    "monetary": "5.98"
+    "monetary": "5.984,21 €"
   }
 }
 ```
