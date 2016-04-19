@@ -1,9 +1,9 @@
-# Credit Account
+# Balance
 
 ## Get current balance
 
 ```javascript
-fetch('https://testerpool-api.herokuapp.com/credit_account/balance', {
+fetch('https://testerpool-api.herokuapp.com/balance', {
   method: 'GET',
   headers: {
     'Accept': 'application/vnd.api+json',
@@ -31,7 +31,7 @@ This endpoint receives the user's current amount of tester points and money.
 
 ### HTTP Request
 
-`GET https://testerpool-api.herokuapp.com/credit_account/balance`
+`GET https://testerpool-api.herokuapp.com/balance`
 
 <aside class="success">
 Responds 200 on success

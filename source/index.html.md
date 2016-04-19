@@ -18,7 +18,7 @@ includes:
   - users
   - profiles
   - notifications
-  - credit_accounts
+  - balance
   - accounts
   - account_invitations
   - errors
