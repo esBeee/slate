@@ -8,6 +8,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?amount=10', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'Accept-Language': 'en, en-US, en-cockney',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',

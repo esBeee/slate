@@ -10,6 +10,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications?page[limit]=2&page[off
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'
@@ -75,6 +76,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications/1', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'
@@ -129,6 +131,7 @@ fetch('https://testerpool-api.herokuapp.com/notifications', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'

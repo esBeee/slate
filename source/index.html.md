@@ -37,24 +37,41 @@ This API documentation was created with [Slate](https://github.com/tripit/slate)
 
 # Authentication
 
+> This is how a minimal request should look (including the testerpool API key under _Authorization_)
+
+```javascript
+fetch('https://testerpool-api.herokuapp.com/some/thing', {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/vnd.api+json',
+    'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key'
+  }
+})
+```
+
+To successfully request the **testerpool API**, you need to place a valid *testerpool API key* under key _Authorization_ in your request header.
+
+Contact us at <a href="mailto:api@testerpool.com">api@testerpool.com</a> to request an API key.
+
 testerpool API currently responds to every request coming from host localhost:3000, testerpool.s3-website.eu-central-1.amazonaws.com and testerpool.herokuapp.com
 
 
 # Requests
 
+> This is how a minimal request with user authorization should look
+
 ```javascript
 fetch('https://testerpool-api.herokuapp.com/some/thing', {
-  method: 'POST',
+  method: 'GET',
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'the-users-UID',
     'access-token': 'the-users-access-token',
     'client': 'the-client-id'
-  },
-  body: JSON.stringify({
-    some: "data"
-  })
+  }
 })
 ```
 
@@ -64,6 +81,7 @@ Key | Value
 --- | -----
 Accept | application/vnd.api+json
 Content-Type | application/vnd.api+json
+Authorization | Your own personal testerpool API key (learn more under section _Authorization_)
 
 To send an authorized request, the following data is expected in the headers:
 

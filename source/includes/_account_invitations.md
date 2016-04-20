@@ -8,6 +8,7 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'
@@ -106,6 +107,7 @@ fetch('https://testerpool-api.herokuapp.com/account_invitations/32', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'user-5642s-UID',
     'access-token': 'user-5642s-access-token',
     'client': 'user-5642s-client-id'

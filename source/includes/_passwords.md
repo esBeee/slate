@@ -8,6 +8,7 @@ fetch('https://testerpool-api.herokuapp.com/auth/password', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'the-users-UID',
     'access-token': 'the-users-access-token',
     'client': 'the-client-id'

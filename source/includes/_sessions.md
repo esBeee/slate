@@ -7,7 +7,8 @@ fetch('https://testerpool-api.herokuapp.com/auth/sign_in', {
   method: 'POST',
   headers: {
     'Accept': 'application/vnd.api+json',
-    'Content-Type': 'application/vnd.api+json'
+    'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key'
   },
   body: JSON.stringify({
     email: 'a@b.de',
@@ -93,6 +94,7 @@ fetch('https://testerpool-api.herokuapp.com/auth/sign_out', {
   headers: {
     'Accept': 'application/vnd.api+json',
     'Content-Type': 'application/vnd.api+json',
+    'Authorization': 'Your-own-personal-tp-api-key',
     'uid': 'the-users-UID',
     'access-token': 'the-users-access-token',
     'client': 'the-client-id'
